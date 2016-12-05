@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+    <!--http://www.google.com/fonts -->
+      @font-face{
+        font-family: 'Droid Serif';
+        src: url('fonts/DroidSerif.ttf');
+      }
+      
+      @font-face{
+        font-family: 'Droid Serif';
+        src: url('fonts/DroidSerif-Bold.ttf');
+        font-weight: bold;
+      }
+
+      @font-face{
+        font-family: 'Droid Serif';
+        src: url('fonts/DroidSerif-Italic.ttf');
+        font-style: italic;
+      }
+
+      @font-face{
+        font-family: 'Droid Serif';
+        src: url('fonts/DroidSerif-BoldItalic.ttf');
+        font-weight: bold;
+        font-style: italic;
+      }      
+      
+      @font-face{
+        font-family: 'Ubuntu Mono';
+        src: url('fonts/UbuntuMono-Regular.ttf');
+      }    
+      
+      @font-face{
+        font-family: 'Ubuntu Mono';
+        src: url('fonts/UbuntuMono-Bold.ttf');
+        font-weight: bold;
+      }
+
+      @font-face{
+        font-family: 'Ubuntu Mono';
+        src: url('fonts/UbuntuMono-Italic.ttf');
+        font-style: italic;
+      }
+
+      @font-face{
+        font-family: 'Ubuntu Mono';
+        src: url('fonts/UbuntuMono-BoldItalic.ttf');
+        font-weight: bold;
+        font-style: italic;
+      }          
+      
+      body { font-family: 'Droid Serif'; } 	  
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }  
+      
+    </style>
+	<link rel="stylesheet" href="mermaid.css">
+	<!-- /* Slideshow styles */ -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">	
+
+  </head>
+  <body>
+    <textarea id="source">
+background-image: url(img/tlo-main.png)
+class: title-slaid, center, middle
+<br/><br/><br/><br/>
+#.center.white[Bootcamp Java]
+<br/><br/>
+##.right.white[Live Kick-Off]
+<br/>
+_.left.tt[k.koziol@sages.com.pl]_
+![:scale 40%](img/sages.png)
+
+---
+layout:true
+class: slaid
+background-image: url(img/tlo-slajd.png)
+
+---
+# Poznajmy się
+# cele
+# plan
+---
+## Szukasz nowego kierunku kariery? 
+### Chcesz zdobyć zawód dający gwarancję zatrudnienia?
+
+- dowiesz się, na czym polega praca programisty Java 
+- poznasz predyspozycje niezbędne do wykonywania tego zawodu 
+- przekonasz się co czeka na Ciebie w ramach bootcampu 
+---
+#To i owo o Prowadzącym ;)
+##mgr inż. Krzysztof Kozioł
+- Ponad 20 lat w zawodzie
+- Głównie praca z Java, Orcale i PL/SQL
+- Zaangażowany w WJUG
+- Współorganizator konferencji Confitura
+
+.right[![:scale 21%](img/kkoziol2.jpg)]
+
+---
+#To i owo o Prowadzącym ;)
+##mgr inż. Krzysztof Kozioł
+- Ponad 20 lat w zawodzie
+- Głównie praca z Java, Orcale i PL/SQL
+- Zaangażowany w WJUG
+- Współorganizator konferencji Confitura
+
+.right[![](img/kkoziol.png)]
+
+---
+#Plan!
+1. Przedstawmy się
+
+--
+2. Jestem programistą, a kto to taki i co on robi?
+
+--
+3. Skoro wiem kto to, to jakie trzeba miec predyspozycje by nim byc?
+
+--
+4. Co trzeba umiec?
+
+--
+5. Co będzie na Bucie i dlaczego
+
+--
+6. Warssztt
+
+--
+7. Koniec
+
+--
+
+a gdzie sciezke kariery?
+---
+[link](http://www.thoughts-on-java.org/jpa-21-how-to-implement-type-converter/)
+    
+---
+
+Predyspozycje do byćia programistą
+
+- dokładność
+- angielski przynajmniej w czytaniu i pisaniu
+- logiczne myslenie
+- cierpliwość
+- odpornosc na długie siedzenie przed kompem
+- dociekliwość
+- wytrwałość w dązeniu do celu
+- umiejętności mikkie, komunikatowyność
+- praca w zespole
+- "asperger"
+- kreatywność
+- umiejętność jedzenia słonia
+- czyli dzielenia problemu nakawałki
+- duża wyobraźnia
+
+---
+
+Na czym polega praca prohramisty
+
+- pisanie programów ;)
+- zamiana wymagań na kod
+- poprawianie, utrzymywanie istniejącego kodu
+- testowanie tego co piszemy
+- wyceny, estymacje
+- podział na taski
+
+---
+rodzaje programistów Java
+
+> 
+ala
+ma 
+kota  
+a kot ma ale
+>
+
+no i co z tego?
+---
+
+# Agenda
+
+1. Testing intro
+2. Play framework
+ - Introduksjon til rammeverket
+ - Praktisk eksempel
+      - Rask presentasjon av Selenium og Selenese
+      - Vise Plays ulike testtyper
+ - Installasjon og oppsett av forste prosjekt
+3. Test-driven development
+ - Introduksjon til TDD
+ - Kodeeksempel
+4. Workshop
+ - Utfordringer med test-drevet webutvikling
+ - Introdusere oppgaven
+ - Teste kontrollere
+ - Teste modeller
+ - Teste perisistering
+ - Teste validering
+ - Teste viewet  
+
+---
+
+# Hvorfor tester vi?
+
+- **Verifisere at losningen tilfredsstiller kravene**
+ - Bygger vi det vi skal?
+- **Beskytte koden ved fremtidige endringer**
+- **Fungerer som dokumentasjon**
+
+---
+
+# Sikre kodekvalitet
+- Gode tester kan indikere et *minimum* av kvalitet
+- MEN: vi kan *ikke* teste kvalitet direkte
+
+---
+
+# Fungerer som dokumentasjon
+
+
+```code
+     @Test
+     public void shouldRequirePersonToBeOver18ToBuyBeer() {
+      * Person p = new Person("ole", 18);
+       assertFalse(p.allowedToBuyBeer());
+     }
+
+```
+```java
+     @Test
+     public void shouldRequirePersonToBeOver18ToBuyBeer() {
+*       Person p = new Person("ole", 18);
+       assertFalse(p.allowedToBuyBeer());
+     }
+
+```
+---
+
+# God testpraksis
+- Testene skal kunne kjores i vilkarlig rekkefolge
+- Testene kjores ved **innsjekk** av ny kode
+- Typisk av en *continous integration server* (CI)
+
+.moody.box[.big[
+####Dersom koden er vanskelig a teste er det et tegn pa darlig design...	
+]]
+
+---
+class: center
+
+# Enhetstester
+
+.happy.box[.big[
+####Validerer at *isolerte enheter* i applikasjonen fungerer slik de skal.]]
+
+- Tester sma biter av koden
+- Tester *betinget* funksjonalitet
+- *Isolerte* tester. 
+- Involverer typisk bare en klasse
+- Faker avhengiger via "*mocks*" 
+ - F.eks: fake en database basert pa API
+
+
+### Eksempler i WEB-app
+- Benyttes til a validere domenemodeller
+
+---
+
+# Funksjonelle tester
+
+.happy.box[.big[
+####Fokuserer pa a teste en spesifikk funksjon i applikasjonen. 
+]]
+
+- Verifiserer at grensesnitt folger kontrakten. 
+- Innvolverer typisk flere klasser
+
+### Eksempler i WEB-app
+- Teste at kontrollerne handterer foresporsler korrekt.
+- Er brukeren autentisert korrekt?
+
+---
+
+# Akseptansetester
+
+.happy.box[.big[
+#### Verifiserer at systemet tilfredsstiller kravene som er satt til losningen.
+]]
+
+- Tester systemet fra *brukerens* perspektiv
+- Hoy-niva tester som verifiserer hele brukerhistorier
+- Sikre at systemet loser *kravene* 
+- Fokuserer *ikke* pa hvordan et krav er lost
+
+### Eksempler i en WEB-applikasjon
+- Verifisere at en HTML-form finnes pa.
+- Verifisere at det er mulig a legge til en kommentar.
+- Verifisere at brukeren havner pa forsiden etter a lagt til en 
+kommentar.
+
+---
+
+- Webrammeverk for java
+- Lart av Rails
+- Lettvekt
+- God testintegrasjon
+
+<br/>
+<br/>
+
+.happy.box[.label[Fordeler]
+- Lart fra andres feil
+- Inkluderer hele webstacken
+- Automatisk rekompilering
+- Konvensjon over konfigurasjon
+]
+
+.angry.box[.label[Ulemper]
+- Begrenset dokumentasjon
+- Begrenset mengde bibliotek tilgjengelig
+]
+
+.center[.big[Sa hvorfor har vi valgt Play i dag?]]
+
+
+---
+# Demo
+
+.happy.box[.label[Hva skal til for a starte en webapp i Play?]
+1. Installer Java
+1. Last ned og unzip .tt[play.zip]
+1. Fra kommandolinje: .tt[play new minApplikasjon]
+1. .tt[play run minApplikasjon]
+1. Time to try!
+]
+```dos
+├── app
+│   ├── controllers
+│   │   └── Application.java
+│   ├── models
+│   └── views
+│       ├── Application
+│       │   └── index.html
+│       ├── errors
+│       │   ├── 404.html
+│       │   └── 500.html
+│       └── main.html
+├── ...
+└── test
+    ├── Application.test.html
+    ├── ApplicationTest.java
+    ├── BasicTest.java
+    └── data.yml
+```
+---
+# Oppsett av play
+
+.moody.box[
+.label[Win]
+
+- Installer .tt[java] hvis du ikke har JDK fra før (ligger på usb)
+- Kopier mappa .tt[play] til .tt[c:\dev\play] (fra usb)
+- Startmeny » Run/Kjør » Skriv .tt[cmd] (og trykk enter)
+- Skriv .tt[cd c:\dev\play] (og trykk enter)
+- Skriv .tt[play] (og trykk enter), far du ASCII-art tilbake sa er alt OK
+]
+
+.happy.box[
+.label[Linux/Mac]
+
+- Installer .tt[java] hvis du ikke har JDK fra for 
+(installasjonsbeskrivelse ligger pa usb)
+- Kopier .tt[play] til hjemmekatalog (fra usb)
+- Apne en terminal, .tt[cd play]
+- Kjor .tt[./play], far du ASCII-art tilbake sa er alt OK
+]
+
+.angry.box[
+.label.problem[Problemer?]
+
+- Java ma vare installert, Play leter etter java pa path eller gjennom 
+variablen .tt[JAVA_HOME]
+- Python-issues » team opp med en annen
+- Andre problemer? » Hor med en av oss
+]
+---
+class: center middle
+
+# Test-drevet utvikling
+---
+
+# Eksempel
+
+.happy.box[
+.label[TDD by example]
+
+---
+class: center
+# TDD: en itera*tiv* prosess
+
+---
+
+class: center middle
+.happy.box[
+## Hovedpoenget med TDD er ikke a skrive testene forst, men derimot at vi &lt;u&gt;iterere&lt;/u&gt; over &lt;u&gt;designet&lt;/u&gt; kontinuerlig og stadig gjor sma &lt;u&gt;forbedringer&lt;/u&gt;.
+]
+
+MD nie ma podkreslenia a by użyć .tt[&lt;].tt[u&gt;] musialem uzyć &.tt[lt];
+---
+
+class: center middle
+# Workshop
+
+---
+
+# Utfordringer ved test-drevet webutvikling
+
+.moody.box[
+
+<br/>
+* Lite kontroll pa klientsiden  
+* Mange avhengigheter nodvendig » vanskelig a finne generelle test-losninger
+* Integrasjon med database, nettverk, webtjenester
+]
+
+Tu jest problem z marginesami bez labela!  
+dwie spacje na koncu jednak działaja jako new line
+
+a pusta linia to pusta..
+---
+
+# Introduksjon til oppgave
+
+.happy.box[
+.label[Hva vi skal]
+
+1. "Todo"-applikasjon som
++ Gir mulighet for a legge til oppgaver
++ Lister opp oppgavene som er lagt til
+2. Funksjonaliteten skal drives frem ved a skrive tester forst (TDD)
+]
+
+1. "Todo"-applikasjon som
+  + Gir mulighet for a legge til oppgaver
+  + Lister opp oppgavene som er lagt til
+2. Funksjonaliteten skal drives frem ved a skrive tester forst (TDD)
+
+Listy zle dzialaja, bo zwalony css w boxie
+
+.angry.box[
+.label[Hva vi _ikke_ skal]
+- Lare detaljer i Play
+]
+
+---
+
+# Opprett applikasjonen
+
+aaa to `<` ?  
+działa i lepsze niz `\&lt`??? `>`
+e tam nie dziła :/
+
+.moody.box[
+
+1. Start � Kjor/Run � .tt[cmd]
+1. .tt[cd c:\dev\play]
+1. .tt[play new todo]
+1. .tt[play eclipsify todo]
+1. I eclipse: File/Import/General/Existing project for a importere 
+prosjektet
+1. .tt[play test todo]
+1. Apne .tt[http://localhost:9000] i en nettleser
+]
+tu jak widać blok css do poprawki
+---
+
+# Iterasjon 1
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+- Klassen .tt[models.Todo] skal kunne opprettes med feltene 
+.tt["beskrivelse"] (description) og .tt["prioritet"] (priority). Dette 
+skal lagres i instansen som instansvariabler.
+]
+
+.moody.box[
+.label[Tips]
+
+1. Lag en unit-test som lager en .tt["Todo"] og verifiserer at 
+properties blir satt
+1. Se at testen feiler
+1. Opprett klassen .tt[models.Todo] og implementer nodvendig 
+funksjonalitet i klassens konstruktor
+]
+---
+
+# Persistering
+
+* Play bruker Hibernate
+* Modeller som extender .tt[Model] og blir annotert med .tt[@Entity] 
+lagres til en in-memory-database
+
+# Fixtures
+
+* Testoppsett
+* Play tilbyr .tt[Fixtures.deleteDatabase()] for a renske opp mellom 
+hver test
+
+---
+
+# Iterasjon 3
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+Vi skal implementere kontrolleren som tilbyr GET pa folgende URL: 
+.tt[/todo/add]. 
+]
+
+.moody.box[
+.label[Tips]
+
+- Opprett unit-test .tt[test/controller/TodoFunctionalTest.java] som 
+gjor en GET-foresporsel pa .tt[/todo/add] og verifiserer at responsen er
+ 200 ok. 
+- Sjekk at testen feiler.
+- Fiks feilende test ved a opprette en *Todo kontroller* som har en 
+"add" action. 
+]
+
+.moody.box[
+.label[Om kontrollere]
+
+- Skal ligge i *controllers* pakken
+- Ma arve fra *Controller*
+- Alle actions skal vare **static** i play.
+]
+
+---
+# Iterasjon 4
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+Vi skal implementere en action i todo-kontrolleren som tilbyr POST til 
+folgende URL: .tt[/todo/create] med to parameter inn: *description* og 
+*priority*. 
+
+Metoden skal ogsa opprette en ny *todo* basert pa input og lagre den.
+]
+
+.moody.box[
+.label[Tips]
+ 
+- Legg til et nytt test-case i 
+.tt[test/controller/TodoFunctionalTest.java] som gjor en POST til 
+.tt[/todo/create]. 
+- Sjekk at testen feiler.
+- Fiks feilende test.
+- Husk at tester skal kjores i isolasjon, bruk JUnits .tt[@Before] og 
+.tt[Fixtures.deleteDatabase()]
+- Du kan verifisere at en TODO ble opprettet ved a hente ut alle todo's 
+via TODO.findAll(). 
+]
+
+---
+
+# Iterasjon 5
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+Vi onsker at det skal finnes en index-action pa todo-kontrolleren slik 
+at losningen var svarer pa "todo/index". 
+
+]
+.moody.box[
+.label[Tips]
+
+* Dette er en funksjonell test 
+]
+
+---
+
+# Iterasjon 6
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+Vi skal viderutvikle create-metoden slik at den redirecter oss til 
+.tt[/todo/index] etter at vi har opprettet en ny *todo*. 
+]
+
+.moody.box[
+.label[Tips]
+ 
+- ved a kalle en annen metode i kontrolleren vil Play utfore en redirect
+ for oss. 
+]
+
+
+---
+
+# Iterasjon 7
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+* Nar jeg apner .tt[/todo/add] skal tittel pa siden vare "Legg til en 
+todo"
+]
+
+.moody.box[
+.label[Tips]
+
+- Selenium egner seg til testing av HTML-respons, opprett derfor 
+.tt[test/Todo.test.html]
+- Ta en titt pa Selenese sin .tt[assertTitle()]
+- Kjor testen via .tt[http://localhost:9000/@tests]
+- Fiks feilende test (opprett et view i .tt[app/views/todo/add.html])
+]
+```selenium
+// fil: test/Application.test.html
+#{selenium}
+    // Open the home page, and check that no error occured
+    open('/')
+    assertNotTitle('Application error')
+#{/selenium}
+```
+---
+
+# Iterasjon 8
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+- Nar jeg apner .tt[/todo/add] skal jeg bli presentert med en form som 
+har input-elementer for .tt["beskrivelse"] og .tt["prioritet"]
+- Formen skal poste til .tt[/todo/create] og ha en submit-knapp
+]
+
+.moody.box[
+.label[Tips]
+
+- Selenium egner seg til testing av HTML-respons, sa fortsett pa 
+.tt[test/Todo.test.html]
+- .tt[assertElementPresent('css=cssSelector')] kan brukes til a kreve at
+ HTML-elementer er tilstede
+- Kjor testen via .tt[http://localhost:9000/@tests]
+- Fiks feilende test (oppdater view)
+]
+
+---
+
+# Iterasjon 9
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+* Nar man apner .tt[/todo/index] skal man fa listen over eksisterende 
+todos
+
+]
+
+.moody.box[
+.label[Tips]
+
+* Selenium passer til denne testen
+* Fixtures kan brukes til a mocke test-data
+* Man trenger en index-metode i Todo-kontrolleren som leverer alle Todos
+ til viewet
+
+]
+
+---
+
+# LF Iterasjon 9
+```java
+    // Test
+    #{fixture delete:'all', load:'data.yml' /}
+    #{selenium}
+      open('/todo/index')
+      verifyText('css=li:nth-child(1)', 'Viktig todo*')
+      verifyText('css=li:nth-child(2)', 'Lala en kulere beskrivelse*')
+      verifyText('css=li:nth-child(6)', 'Lala en kul beskrivels*')
+    #{/selenium}
+
+```
+```html
+    // Implementasjon:
+    #{extends 'main.html' /}
+    #{set title:'List todo' /}
+
+    &lt;h1&gt;Liste over planlagte oppgaver:&lt;/h1&gt;
+
+    &lt;ul&gt;
+      #{list items:todos, as:'todo'}
+      &lt;li class="ui-state-default"&gt;${todo.description} - ${todo.priority}&lt;/li&gt;
+      #{/list}
+    &lt;/ul&gt;
+```
+
+---
+
+# Iterasjon 10
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+Vi onsker a kreve at todo-er som opprettes har en beskrivelse. 
+
+]
+.moody.box[
+.label[Tips]
+
+* En funksjonell test passer her.
+* Benytt @Required anotering i models
+* Man trenger en index-metode i Todo-kontrolleren som leverer alle Todos
+ til viewet
+* Har en lagre-funksjon i Play som validerer og lagrer: 
+.tt[todo.validateAndSave()]
+* Vi ma ogsa verifisere at requesten blir redirgert tilbake til 
+.tt[/todo/add]
+]
+
+---
+
+# LF Iterasjon 10
+```java
+    @Test
+    public void shouldRequireDescription() {
+		Map&lt;String, String&gt; params = new HashMap&lt;String, String&gt;();
+
+		params.put("priority", "1"); 
+
+        Response response = POST("/todo/create", params);	        
+        assertHeaderEquals("Location", "/todo/add", response);	        	
+        
+    }
+    //Kontroller
+    public static void create(String description, int priority) {
+		models.Todo todo = new models.Todo(description, priority);
+				
+		if (!todo.validateAndSave()) {
+			validation.keep();
+			add();
+		}		
+		index();
+	}
+    //Modell
+    @Entity
+    public class Todo  extends Model {
+
+	  @Required
+	  public String description;
+      ...
+```
+
+---
+
+# Iterasjon 11
+
+.moody.box[
+.label[Hva skal implementeres?]
+
+* Nar det er feilmeldinger i skjemaet skal disse vises til brukeren i en
+ liste
+
+]
+
+.moody.box[
+.label[Tips]
+
+* .tt[http://www.playframework.org/documentation/1.2.4/tags#errors]
+
+]
+
+---
+
+# LF Iterasjon 11
+```java
+    // Test
+    #{selenium}
+      // Verify that error's are showed.
+      open('/todo/add')
+      type('css=input#description', '')
+      type('css=input#priority', '')
+      clickAndWait('css=input[type=submit]')
+    
+      verifyTextPresent('Error')    
+    #{/selenium}
+
+```
+```html
+    // Implementasjon:
+    #{extends 'main.html' /}
+    #{set title:'Add Todo' /}
+
+    #{ifErrors}
+      &lt;h1&gt;Error�&lt;/h1&gt;
+       #{errors}
+        &lt;li&gt;${error}&lt;/li&gt;
+      #{/errors} 
+    #{/ifErrors}
+
+    &lt;h1&gt;Legg til en ny TODO:&lt;/h1&gt;
+    
+    &lt;!-- resten av "add.html" her --&gt;
+```
+
+---
+
+.mermaid[graph LR
+        A-->B
+        B-->C
+        C-->A
+        D-->C]
+		
+---
+
+.mermaid[sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!]
+	
+---
+##poł slajdu
+
+--
+
+##drugie pół
+-
+a to? nic...
+
+???
+a to jest notatka, dla prezentera
+---
+background-image: url(img/parkometer_fail.jpg)
+
+class: center middle
+##a to tekst na backgrądzie
+## i o dziwo działa :)
+
+---
+layout: true
+background-image: url(img/itera-stor.png)
+class: center middle bg-img-repeat
+
+##a to tekst na backgrądzie
+## i o dziwo działa :)
+
+---
+
+## aaaa
+---
+
+## bbbb
+
+---
+layout: false	
+## no i koniec
+
+---
+class: bg-dark center middle
+## a tu dark cien
+___
+###Tabelka.red.bold[*]
+
+|aa|bb|ccc|
+|-|--|------|
+|1|ddc|dfklm|
+|2|ddc|dfklm|
+|4|ddc|dfklm|
+***
+| Tables        | Are           | Cool  |
+|:------------- |:-------------:| -----:|
+| col 1 is      | left-aligned | $1600 |
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+.footnote[.red.bold[*]
+Ale jak centrować tylko nagłówek kolumny?]
+
+
+    </textarea>
+    <script src="js/remark-latest.min.js">
+    </script>
+	
+    <script src="js/mermaid.min.js"></script>
+    
+ <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>	
+	
+    <script>	  
+      remark.macros.scale = function (percentage) {
+         var url = this;
+         return '<img src="' + url + '" style="width: ' + percentage + '" />';
+      };	  
+	
+      var slideshow = remark.create({
+      // Set the slideshow display ratio
+      // Default: '4:3'
+      // Alternatives: '16:9', ...
+      ratio: '16:9',
+
+      // Navigation options
+      navigation: {
+      // Enable or disable navigating using scroll
+      // Default: true
+      // Alternatives: false
+      scroll: false,
+
+      // Enable or disable navigation using touch
+      // Default: true
+      // Alternatives: false
+      touch: false,
+
+      // Enable or disable navigation using click
+      // Default: false
+      // Alternatives: true
+      click: false
+	  },
+      // Customize slide number label, either using a format string..
+      slideNumberFormat: 'Slide %current% of %total%',
+      // .. or by using a format function
+      slideNumberFormat: function (current, total) {
+      return current + '/' + total;
+      },
+
+      // Enable or disable counting of incremental slides in the slide counting
+      countIncrementalSlides: true,
+	  /*highlightLanguage: 'java',*/
+      /*arta, ascetic, dark, default, far, github, googlecode, idea, ir_black, magula, monokai, rainbow, solarized-dark, solarized-light, sunburst, tomorrow, tomorrow-night-blue, tomorrow-night-bright, tomorrow-night, tomorrow-night-eighties, vs, zenburn */
+      highlightStyle: 'magula',
+	  highlightLines: true
+	  });
+	  
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+
+      MathJax.Hub.Configured();	  	  
+    </script>	
+    <script>mermaid.initialize({startOnLoad:true});</script>		
+  </body>
+</html>

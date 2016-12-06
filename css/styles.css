@@ -218,6 +218,15 @@ div.box, code {
   width: 50%;
   float: right;
 }
+.left-column64 {
+  width: 60%;
+  float: left;
+}
+.right-column64 {
+  width: 40%;
+  float: right;
+}
+
 .one-column {
   width: 100%;
 }

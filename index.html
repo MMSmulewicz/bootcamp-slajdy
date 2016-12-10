@@ -499,32 +499,209 @@ class: slaid
 background-image: url(img/kl-slaid43.png)
 
 ---
-class: center, middle
+class: top
 
-## no wrescie coś konretnego.
+# .center[GitHub]
 
+- zakładamy konto
+
+--
+- forkujemy projekt **kkoziol/kk-jetty**
+
+--
+- odszukujemy projekt **kkoziol/bootcamp-slajdy** i pobieramy jako **zip**
+- rozpakowujemy lokalnie na komputerze.
+
+--
+- forkujemy projekt **heroku/java-getting-started**
 
 ---
-# Formatowanie kodziku
+class: top
 
+# .center[Heroku]
+
+- zakładamy konto
+
+--
+- tworzymy nowa aplikację: **bootcamp-slajdy**
+
+--
+- w zakładce deploy podpinamy repozytorium **kk-jetty** z GitHuba
+- klikamy *Deploy* .small[(Zainstaluj/wdróż aplikację)]
+- klikamy *Open app*
+
+---
+# Slajdy na Heroku
+
+- repozytorium **kk-jetty**
+- kopiujemy slajdy do katalogu webapp
+- komitujemy
+- wracamy do Heroku i odswieżamy aplikację
+
+---
+# java-getting-started
+
+- zforkowany wczesniej projekt obladamy sobie na Githubie
+- klikamy w Github *Deploy Heroku*, twoży nam się nowa aplikacja.
+- uruchamiamy i oglądamy ja sobie
+
+---
+# Zadania
+
+BCD-1 Dodać link do podstrony hello na głównej stronie
+
+BCD-2 Strone hello przerobic tak by miala wyglad strony domowej
+
+BCD-3 Dodać nowe elemeny na stronie hello
+
+BCD-4 Dodać link do podstrony db na głównej stronie
+
+BCD-5 Refaktoring nawigacji
+
+BCD-6 gitignore - dodac pliki techniczne eclipsy
+
+BCD-7 Poprawić domyślne kodowanie znaków w projekcie
+
+BCD-8 ERROR Brak możliwości testowania aplikacji z baza danych lokalnie.
+
+---
+## BCD-1
+###Dodać link do podstrony **hello** na głównej stronie
+
+Dodać link do podstrony hello na głównej stronie, w menu zaraz za "home".
+
+## nav.ftl
+```code
+<li>
+   <a href="hello"><span class="glyphicon glyphicon-user"></span> Hello</a>
+</li> 
+```
+---
+## BCD-2
+### Stronę **hello** przerobić tak by miała wygląd strony domowej
+
+Według projektu **hello-project.png**
+Proszę zwrócić uwagę na podświetlenie menu!
+
+![:scale 68%](img/hello-project.png)
+
+---
+
+- nowy template **hello.ftl**
+- nowy template **nav-hello.ftl**
+- zmiana **header.ftl**
 
 ```code
-     @Test
-     public void shouldRequirePersonToBeOver18ToBuyBeer() {
-      * Person p = new Person("ole", 18);
-       assertFalse(p.allowedToBuyBeer());
-     }
-
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="pl">
 ```
+- zmiana **Main.java**
+
 ```java
-     @Test
-     public void shouldRequirePersonToBeOver18ToBuyBeer() {
-*       Person p = new Person("ole", 18);
-       assertFalse(p.allowedToBuyBeer());
-     }
+    get("/hello", (request, response) -> {
+        Map<String, Object> attributes = new HashMap<>();
+        attributes.put("message", "Hello World!");
 
+        return new ModelAndView(attributes, "hello.ftl");
+    }, new FreeMarkerEngine());
 ```
 
+---
+##BCD-3
+### Dodać nowe elemeny na stronie **hello**
+
+Stronę hallo przerobić według projektu  **hello-project-2.png**
+
+![:scale 72%](img/hello-project-2.png)
+
+---
+
+- nowa zależność w **pom.xml**
+
+```code
+		<dependency>
+			<groupId>org.jscience</groupId>
+			<artifactId>jscience</artifactId>
+			<version>4.3.1</version>
+		</dependency>
+```
+
+- zmiana **Main.java**
+
+```code
+        attributes.put("message", "Spark i Freemaker w akcji!");
+        
+        RelativisticModel.select();
+        Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
+        String massMessage = "E=mc^2: 12 GeV = " + m.toString();
+        attributes.put("massMessage", massMessage);
+        
+        Amount<Energy> e = Amount.valueOf("100 kg").to(SI.GIGA(NonSI.ELECTRON_VOLT));
+        String energyMessage = "E=mc^2: 100 kg = " + e.toString();
+        attributes.put("energyMessage", energyMessage);
+```
+
+- zmiana w **hello.ftl**
+
+albo moze sprobojmy najpierw zadeplojować na Heroku.
+
+---
+## .center[Robimy pożądne środowisko programistyczne.]
+
+- rozpakowujemy pobrane wczesniej installki
+- instalujemy Git
+- instalujemy Heroku tools
+- instalujemy Eclipse
+- [https://devcenter.heroku.com/articles/getting-started-with-java#introduction](https://devcenter.heroku.com/articles/getting-started-with-java#introduction)
+
+---
+##BCD-4
+### Dodać link do podstrony **db** na głównej stronie
+
+Dodać link do podstrony db na głównej stronie, w menu zaraz za "hello".
+
+---
+##BCD-5
+### Refaktoring nawigacji
+
+Dotychczasowe rozwiązanie nawigacji jest nie efektywne, narusza zasadę DRY.
+
+Dokonać refaktoryzacji, wprowadzić zmienne do templejtu nawigacji.
+
+---
+##BCD-6
+### gitignore - dodać pliki techniczne eclipsy
+
+---
+##BCD-7
+### Poprawić domyślne kodowanie znaków w projekcie
+
+Podczas budowania aplikacji mavenem, wystepuje ostrzeżenie następującej tresci:
+
+.tt[
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ helloworld ---
+
+[WARNING] Using platform encoding (Cp1250 actually) to copy filtered resources, i.e. build is platform dependent!
+]
+
+Poprawić konfigurację projektu w pom.xml. Ustawić domyślne kodowanie na UTF-8
+
+Rozwiązanie:
+```code
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+```
+---
+##BCD-8 ERROR
+### Brak możliwości testowania aplikacji z bazą danych lokalnie.
+
+Na srodowisku lokalnym, aplikacja nie łączy sie do bazy, w związku z czym nie mozna tesotwać danej funkcjonalności lokalnie!
+
+.tt[
+There was an error: org.postgresql.util.PSQLException: FATAL....
+]
 
 ---
 layout:false
@@ -536,88 +713,6 @@ class: title-slaid, center, middle
 ##.right[Zapraszam na Boot Camp]
 <br/><br/><br/><br/>
 .left[![:scale 10%](img/sages.png)]
-
----
-
-.moody.box[.big[
-#### różne rodzaje modyfikacji tekstu	
-]]
-
-.happy.box[.big[
-####Hip hpip hura, zielono mi.]]
-
----
-```dos
-├── app
-│   ├── controllers
-│   │   └── Application.java
-│   ├── models
-│   └── views
-│       ├── Application
-│       │   └── index.html
-│       ├── errors
-│       │   ├── 404.html
-│       │   └── 500.html
-│       └── main.html
-├── ...
-└── test
-    ├── Application.test.html
-    ├── ApplicationTest.java
-    ├── BasicTest.java
-    └── data.xml
-```
-
----
-# razem
-
-.moody.box[
-.label[aaa]
-
-1. tu działa tt - .tt[java] 
-1. .tt[play] w .tt[c:\dev\play] 
-2. Startmeny » Run » Skrypt .tt[cmd] 
-3. .tt[cd c:\java\] 
-
-]
-
-.happy.box[
-.label[bbb]
-
-- tu nie działa tt - .tt[java] 
-    - .tt[play] w .tt[c:\dev\play] 
-    - Startmeny » Run » Skrypt .tt[cmd] 
-    - .tt[cd c:\java\] 
-
-]
-
-.angry.box[
-.label.problem[cccc]
-
-- tu działa tt - .tt[java] 
-- .tt[play] w .tt[c:\dev\play] 
-- Startmeny » Run » Skrypt .tt[cmd] 
-- .tt[cd c:\java\] 
-
-]
-
----
-class: center middle
-***
-###Tabelka.red.bold[*]
-___
-
-| Tables        | Are           | Cool  |
-|:------------- |:-------------:| -----:|
-| col 1 is      | left-aligned | $1600 |
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-.left.footnote[.red.bold[*]
-Ale jak centrować tylko nagłówek kolumny? - css  
-Jak widać nie ustawia sie na środku!
-]
-
 
     </textarea>
     <script src="js/remark-latest.min.js">

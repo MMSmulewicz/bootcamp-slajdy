@@ -1,26 +1,26 @@
 /* Sages */
 /* fitting in backgrounds*/
 .remark-slide-content{
-    padding-top: 2.5em;
+    padding-top: 2.8em;
     padding-bottom: 2.5em;
     padding-left: 3.7em;
     padding-right: 2.5em;
 }
 /* title slajd*/
 .title-slaid {
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 .title-slaid h1 {
-    margin-top: 60px;
-    margin-left: 220px;
+    margin-top: 150px;
+    margin-left: 100px;
 }
 /* slajd */
 .slaid {
     background-position: top;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 body {
     font-family: Ubuntu;
@@ -71,17 +71,23 @@ ul li li:before {
     color: lightblue;
     text-align: center;
     display: inline-block;
+}
+ol ul li:before {
+    margin-right: 10px;
+    content: "■ ";
+    color: blue;
+    text-align: center;
+    display: inline-block;
 } 
+ 
 li li {
   font-size: 0.89em;
 }
 blockquote {
-  border-left: 0.3em solid rgba(0,0,0,0.5);
+  border-left: 0.3em solid lightblue;
   padding: 0 15px;
   font-style: italic;
 }
-
-/* old */
 
 h1 {
     margin-top: 0px;
@@ -126,12 +132,22 @@ code {
   position: relative;
 }
 
-div.box p, div.box ul, div.box ol {
+div.box p{
   position: relative;
   top: -20px;
+  margin-bottom: 0px; 
+  height: 0px;  
+}
+div.box ul , div.box ol{
+  position: relative;
+  top: -10px;
   margin-bottom: 0px;  
 }
-
+div.box li, div.box ul ul, div.box ol ul, div.box ol ol, div.box ul ol{
+  position: relative;
+  top: -0px;
+  margin-bottom: 0px;  
+}
 .box.moody .label {
   background-color: #F89406;
 }
@@ -192,16 +208,19 @@ div.box, code {
   color: white;
 }
 
-.small {
-  font-size: 0.5em;
+.tinny {
+  font-size: 0.6em;
 }
 
-.tinny {
-  font-size: 0.25em;
+.small {
+  font-size: 0.75em;
 }
 
 .big {
-  font-size: 1.2em;
+  font-size: 1.5em;
+}
+.huge{
+  font-size: 2.0em;
 }
 
 .footnote {
@@ -231,19 +250,20 @@ div.box, code {
   width: 100%;
 }
 /* slides */
+table {
+    border-collapse: collapse;
+}
 table, th, td {
    border: 1px solid black;
+}
+th {
+    text-align: center!important;
+    background-color: lightblue; 
+    color: black;
 } 
-.bg-red {
-  background: #A60A17;
-}
-.bg-dark {
-  color: green;
-  text-shadow: 0 0 20px #333;  
-}
-.bg-img-repeat {
-  background-repeat: repeat; 
-  background-position: left top;  
-}
+th, td {
+    padding: 5px;
+ }
+tr:hover {background-color: #f5f5f5}
 
 
